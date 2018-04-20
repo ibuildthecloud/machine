@@ -1,0 +1,971 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e3dcd951-9bb7-438c-a06c-8872dc9f78b7" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.dockerignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.godir" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.travis.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CHANGELOG.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CONTRIBUTING.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Godeps/Godeps.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Godeps/Readme" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/MAINTAINERS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Makefile.inc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ROADMAP.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/appveyor.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/circle.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/machine.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cmd/machine_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contrib/completion/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contrib/completion/bash/docker-machine-prompt.bash" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contrib/completion/bash/docker-machine-wrapper.bash" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contrib/completion/bash/docker-machine.bash" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/contrib/completion/zsh/_docker-machine" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/doc.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experimental/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experimental/b2d_migration.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/experimental/b2d_migration_tasks.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/its/cli/create_rm_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/its/cli/driver_help_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/its/cli/help_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/its/cli/inspect_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/its/cli/ls_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/its/cli/status_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/its/cli/url_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/its/tester.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/its/thirdparty/commands_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/auth/auth.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/cert/bootstrap.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/cert/cert.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/cert/cert_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/check/check.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/check/check_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/crashreport/crash_report.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/crashreport/crash_report_logger.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/crashreport/crash_report_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/crashreport/os_darwin.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/crashreport/os_freebsd.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/crashreport/os_linux.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/crashreport/os_windows.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/crashreport/os_windows_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/examples/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/host/host.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/host/host.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/host/host_v0.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/host/host_v2.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/host/migrate.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/host/migrate_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/host/migrate_v0_v1.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/host/migrate_v0_v1_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/host/migrate_v0_v3_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/host/migrate_v1_v2.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/host/migrate_v1_v2_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/host/migrate_v2_v3.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/libmachine.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/libmachine.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/mcndockerclient/docker_client.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/mcndockerclient/docker_host.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/mcndockerclient/docker_versioner.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/mcndockerclient/fake_docker_versioner.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/mcnutils/b2d.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/mcnutils/b2d.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/persist/filestore.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/persist/filestore.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/arch.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/arch.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/boot2docker.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/configure_swarm.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/coreos.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/coreos.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/debian.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/debian.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/engine_config_context.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/engine_config_context.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/fake_provisioner.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/fake_provisioner.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/generic.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/generic.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/provisioner.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/provisioner.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/rancheros.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/rancheros.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/redhat.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/redhat.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/redhat_ssh_commander.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/redhat_ssh_commander.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/suse.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/suse.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/systemd.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/systemd.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/ubuntu_systemd.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/ubuntu_systemd.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/ubuntu_upstart.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/ubuntu_upstart.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/provision/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/provision/utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/ssh/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/libmachine/ssh/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/libmachine/swarm/swarm.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mk/build.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mk/coverage.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mk/dev.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mk/main.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mk/test.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mk/validate.mk" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/.validate" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/build_in_container.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/release.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/release/github-release-template.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/script/validate-dco" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/amazonec2/amazon.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/amazonec2/create-ebsinstance.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/amazonec2/createwithkeypair.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/core/certs-extra-san.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/core/core-commands.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/core/crashreport.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/core/engine-options.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/core/env_shell.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/core/inspect_format.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/core/regenerate-certs.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/core/scp.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/core/ssh-backends.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/core/swarm-options.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/helpers.bash" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/run-bats.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/virtualbox/certs-checksum.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/virtualbox/create-with-upgrading.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/virtualbox/custom-mem-disk.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/virtualbox/dns.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/virtualbox/guards.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/virtualbox/pause-save-start.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/integration/virtualbox/upgrade.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/provision/rancheros.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/test/provision/redhat.bats" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/Azure/azure-sdk-for-go/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/Azure/go-autorest/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/aws/aws-sdk-go/LICENSE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/aws/aws-sdk-go/NOTICE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/davecgh/go-spew/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/docker/docker/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/docker/docker/NOTICE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/docker/docker/contrib/syntax/vim/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/docker/docker/pkg/mflag/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/docker/docker/pkg/symlink/LICENSE.APACHE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/docker/docker/pkg/symlink/LICENSE.BSD" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/dns.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/dns.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/groups.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/groups.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/request.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/request.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/topology.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/topology.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/types.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/types.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/vm.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/github.com/exoscale/egoscale/vm.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/golang/protobuf/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/google/go-querystring/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/pmezard/go-difflib/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/LICENCE.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/github.com/stretchr/testify/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/AUTHORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/CONTRIBUTORS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/PATENTS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/curve25519/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/crypto/curve25519/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/ssh/doc.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/crypto/ssh/doc.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/ssh/terminal/util.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/crypto/ssh/terminal/util.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/crypto/ssh/terminal/util_solaris.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/crypto/ssh/terminal/util_solaris.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/net/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/net/PATENTS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/net/context/context.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/net/context/context.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/net/context/ctxhttp/ctxhttp.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/net/context/ctxhttp/ctxhttp.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/oauth2/google/google.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/oauth2/google/google.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/oauth2/jws/jws.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/oauth2/jws/jws.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/oauth2/oauth2.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/golang.org/x/oauth2/oauth2.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/sys/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/golang.org/x/sys/PATENTS" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/compute/v1/compute-api.json" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/api/compute/v1/compute-api.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/compute/v1/compute-gen.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/api/compute/v1/compute-gen.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/backoff.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/backoff_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/buffer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/buffer_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/doc.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/json.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/json.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/json_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/json_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/media.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/media_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/params.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/params.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/resumable.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/resumable_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/retry.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/retry_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/send.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/gensupport/util_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/googleapi/googleapi.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/api/googleapi/googleapi.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/googleapi/googleapi_test.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/api/googleapi/googleapi_test.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/googleapi/internal/uritemplates/uritemplates.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/api/googleapi/internal/uritemplates/uritemplates.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/googleapi/internal/uritemplates/uritemplates_test.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/api/googleapi/internal/uritemplates/utils.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/api/googleapi/internal/uritemplates/utils.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/appengine/appengine.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/appengine/appengine.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/cloud/LICENSE" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vendor/google.golang.org/cloud/compute/metadata/metadata.go" beforeDir="false" afterPath="$PROJECT_DIR$/vendor/google.golang.org/cloud/compute/metadata/metadata.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/version/version.go" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="utils.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libmachine/provision/utils.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="144">
+              <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="libmachine.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libmachine/libmachine.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="126">
+              <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="host.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libmachine/host/host.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="create.go" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/commands/create.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="245" column="20" lean-forward="true" selection-start-line="245" selection-start-column="20" selection-end-line="245" selection-end-column="20" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="engine.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libmachine/engine/engine.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="108">
+              <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="plugin.go" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/libmachine/drivers/plugin/localbinary/plugin.go">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="306">
+              <caret line="102" column="25" selection-start-line="102" selection-start-column="25" selection-end-line="102" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="GOROOT" path="$USER_HOME$/.local/go1.9.2" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GoLibraries">
+    <option name="urls">
+      <list>
+        <option value="file://$PROJECT_DIR$/../../../.." />
+      </list>
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/libmachine/mcnutils/b2d.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/engine_config_context.go" />
+        <option value="$PROJECT_DIR$/libmachine/ssh/client.go" />
+        <option value="$PROJECT_DIR$/libmachine/check/check.go" />
+        <option value="$PROJECT_DIR$/libmachine/libmachine.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/utils.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/rancheros.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/redhat.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/suse.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/ubuntu_systemd.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/ubuntu_upstart.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/arch.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/debian.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/provisioner.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/coreos.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/fake_provisioner.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/generic.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/redhat_ssh_commander.go" />
+        <option value="$PROJECT_DIR$/libmachine/provision/systemd.go" />
+        <option value="$PROJECT_DIR$/libmachine/host/host.go" />
+        <option value="$PROJECT_DIR$/libmachine/persist/filestore.go" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="2817" />
+    <option name="y" value="395" />
+    <option name="width" value="1914" />
+    <option name="height" value="1078" />
+  </component>
+  <component name="ProjectInspectionProfilesVisibleTreeState">
+    <entry key="Project Default">
+      <profile-state>
+        <expanded-state>
+          <State>
+            <id />
+          </State>
+          <State>
+            <id>Abstraction issuesJava</id>
+          </State>
+          <State>
+            <id>Assignment issuesJava</id>
+          </State>
+          <State>
+            <id>Bitwise operation issuesJava</id>
+          </State>
+          <State>
+            <id>Class metricsJava</id>
+          </State>
+          <State>
+            <id>Class structureJava</id>
+          </State>
+          <State>
+            <id>Cloning issuesJava</id>
+          </State>
+          <State>
+            <id>Code maturity issuesJava</id>
+          </State>
+          <State>
+            <id>Code style issuesJava</id>
+          </State>
+          <State>
+            <id>Compiler issuesJava</id>
+          </State>
+          <State>
+            <id>Concurrency annotation issuesJava</id>
+          </State>
+          <State>
+            <id>Control flow issuesJava</id>
+          </State>
+          <State>
+            <id>Data flow issuesJava</id>
+          </State>
+          <State>
+            <id>Declaration redundancyJava</id>
+          </State>
+          <State>
+            <id>Dependency issuesJava</id>
+          </State>
+          <State>
+            <id>Encapsulation issuesJava</id>
+          </State>
+          <State>
+            <id>Error handlingJava</id>
+          </State>
+          <State>
+            <id>Finalization issuesJava</id>
+          </State>
+          <State>
+            <id>GPath inspectionsGroovy</id>
+          </State>
+          <State>
+            <id>General</id>
+          </State>
+          <State>
+            <id>GeneralJava</id>
+          </State>
+          <State>
+            <id>Groovy</id>
+          </State>
+          <State>
+            <id>ImportsJava</id>
+          </State>
+          <State>
+            <id>Inheritance issuesJava</id>
+          </State>
+          <State>
+            <id>Initialization issuesJava</id>
+          </State>
+          <State>
+            <id>Internationalization issuesJava</id>
+          </State>
+          <State>
+            <id>J2ME issuesJava</id>
+          </State>
+          <State>
+            <id>JUnit issuesJava</id>
+          </State>
+          <State>
+            <id>Java</id>
+          </State>
+          <State>
+            <id>Java 5Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Java 7Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Java 8Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>Java language level issuesJava</id>
+          </State>
+          <State>
+            <id>Java language level migration aidsJava</id>
+          </State>
+          <State>
+            <id>JavaBeans issuesJava</id>
+          </State>
+          <State>
+            <id>JavaFX</id>
+          </State>
+          <State>
+            <id>Javadoc issuesJava</id>
+          </State>
+          <State>
+            <id>Kotlin</id>
+          </State>
+          <State>
+            <id>Language Injection</id>
+          </State>
+          <State>
+            <id>Logging issuesJava</id>
+          </State>
+          <State>
+            <id>Manifest</id>
+          </State>
+          <State>
+            <id>Memory issuesJava</id>
+          </State>
+          <State>
+            <id>Method metricsJava</id>
+          </State>
+          <State>
+            <id>Modularization issuesJava</id>
+          </State>
+          <State>
+            <id>Naming ConventionsGroovy</id>
+          </State>
+          <State>
+            <id>Naming conventionsJava</id>
+          </State>
+          <State>
+            <id>Numeric issuesJava</id>
+          </State>
+          <State>
+            <id>Packaging issuesJava</id>
+          </State>
+          <State>
+            <id>Performance issuesJava</id>
+          </State>
+          <State>
+            <id>Portability issuesJava</id>
+          </State>
+          <State>
+            <id>Potentially confusing code constructsGroovy</id>
+          </State>
+          <State>
+            <id>Probable bugsGroovy</id>
+          </State>
+          <State>
+            <id>Probable bugsJava</id>
+          </State>
+          <State>
+            <id>Properties Files</id>
+          </State>
+          <State>
+            <id>Properties FilesJava</id>
+          </State>
+          <State>
+            <id>Resource management issuesJava</id>
+          </State>
+          <State>
+            <id>Security issuesJava</id>
+          </State>
+          <State>
+            <id>Serialization issuesJava</id>
+          </State>
+          <State>
+            <id>StyleGroovy</id>
+          </State>
+          <State>
+            <id>Threading issuesGroovy</id>
+          </State>
+          <State>
+            <id>Threading issuesJava</id>
+          </State>
+          <State>
+            <id>Verbose or redundant code constructsJava</id>
+          </State>
+          <State>
+            <id>Visibility issuesJava</id>
+          </State>
+          <State>
+            <id>toString() issuesJava</id>
+          </State>
+        </expanded-state>
+      </profile-state>
+    </entry>
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <autoscrollFromSource ProjectPane="true" />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="machine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="machine" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="machine" type="b2602c69:ProjectViewProjectNode" />
+              <item name="machine" type="462c0819:PsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="configurable.Global.GOPATH.is.expanded" value="true" />
+    <property name="configurable.Module.GOPATH.is.expanded" value="false" />
+    <property name="configurable.Project.GOPATH.is.expanded" value="true" />
+    <property name="go.sdk.automatically.set" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="settings.editor.selected.configurable" value="watcher.settings" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="go build github.com/docker/machine/libmachine" type="GoApplicationRunConfiguration" factoryName="Go Build" temporary="true">
+      <module name="machine" />
+      <working_directory value="$PROJECT_DIR$" />
+      <go_parameters value="-i" />
+      <kind value="PACKAGE" />
+      <package value="github.com/docker/machine/libmachine" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="TestNG" default="true" selected="false">
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+    </configuration>
+    <configuration name="&lt;template&gt;" type="#org.jetbrains.idea.devkit.run.PluginConfigurationType" default="true" selected="false">
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xms256m -XX:MaxPermSize=250m -ea" />
+    </configuration>
+    <recent_temporary>
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Go Build.go build github.com/docker/machine/libmachine" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="2817" y="395" width="1914" height="1078" extended-state="0" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.25107297" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.33017877" />
+      <window_info anchor="bottom" id="Run" order="5" weight="0.32983193" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="0" visible="true" weight="0.32982087" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.39915967" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+    </layout>
+    <layout-to-restore>
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" visible="true" weight="0.25" />
+      <window_info active="true" anchor="bottom" id="Run" order="5" visible="true" weight="0.32983193" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Cvs" order="7" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.25" />
+      <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="9" />
+      <window_info anchor="bottom" id="Message" order="3" />
+      <window_info anchor="bottom" id="Debug" order="6" weight="0.39915967" />
+      <window_info anchor="right" id="Database" order="0" />
+      <window_info anchor="bottom" id="Terminal" order="0" weight="0.32983193" />
+      <window_info anchor="bottom" id="Event Log" order="1" side_tool="true" />
+      <window_info anchor="bottom" id="Inspection" order="8" weight="0.4" />
+      <window_info anchor="bottom" id="Version Control" order="2" />
+      <window_info anchor="bottom" id="Find" order="4" weight="0.32983193" />
+      <window_info id="Favorites" order="0" side_tool="true" />
+    </layout-to-restore>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/MAINTAINERS">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Makefile">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/provision/rancheros.bats">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/version/version.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" selection-start-line="2" selection-end-line="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" selection-start-line="1" selection-end-line="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/cert/bootstrap.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="47" selection-start-line="12" selection-start-column="47" selection-end-line="12" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/crashreport/crash_report.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/libmachinetest/fake_api.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/log/fmt_machine_logger.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/log/history_recorder.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="14" lean-forward="true" selection-start-line="12" selection-start-column="14" selection-end-line="12" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/mcndockerclient/docker_client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/mcndockerclient/docker_versioner.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="40" selection-start-line="16" selection-start-column="40" selection-end-line="16" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/log/history_recorder_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" column="16" selection-start-line="9" selection-start-column="16" selection-end-line="9" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/gocode/src/github.com/docker/machine/libmachine/mcndockerclient/docker_client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="12" column="12" lean-forward="true" selection-start-line="12" selection-start-column="12" selection-end-line="12" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/configure_swarm.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/boot2docker.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="11" column="4" selection-start-line="11" selection-start-column="4" selection-end-line="11" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/mcnutils/b2d.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="113" selection-start-line="113" selection-end-line="113" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/auth/auth.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="36">
+          <caret line="2" column="5" selection-start-line="2" selection-start-column="5" selection-end-line="2" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/examples/main.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/drivers/drivers.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="45" column="4" selection-start-line="45" selection-start-column="4" selection-end-line="45" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/ssh/client.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="57" selection-start-line="57" selection-end-line="57" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/check/check.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="234">
+          <caret line="13" column="33" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/engine_config_context.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/host/migrate_v0_v1.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="54">
+          <caret line="3" column="4" selection-start-line="3" selection-start-column="4" selection-end-line="3" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/host/migrate_test.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="10" column="5" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/host/migrate.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="226">
+          <caret line="46" column="5" selection-start-line="46" selection-start-column="5" selection-end-line="46" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/host/host_v2.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="6" selection-start-line="4" selection-start-column="6" selection-end-line="4" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/host/host_v0.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="72">
+          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/host/host_test.go">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/suse.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="374">
+          <caret line="185" selection-start-line="185" selection-end-line="185" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/ubuntu_systemd.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/arch.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="982">
+          <caret line="130" selection-start-line="130" selection-end-line="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/debian.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1252">
+          <caret line="121" selection-start-line="121" selection-end-line="121" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/oraclelinux.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="14" column="28" selection-start-line="14" selection-start-column="28" selection-end-line="14" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/redhat.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="102" column="28" selection-start-line="102" selection-start-column="28" selection-end-line="102" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/provisioner.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="42" column="26" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/coreos.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="57" column="39" selection-start-line="57" selection-start-column="39" selection-end-line="57" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/fake_provisioner.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="97" column="24" selection-start-line="97" selection-start-column="24" selection-end-line="97" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/rancheros.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="199">
+          <caret line="31" column="27" selection-start-line="31" selection-start-column="27" selection-end-line="31" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/ubuntu_upstart.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="195">
+          <caret line="119" column="35" selection-start-line="119" selection-start-column="35" selection-end-line="119" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/generic.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="558">
+          <caret line="110" column="25" selection-start-line="110" selection-start-column="25" selection-end-line="110" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/redhat_ssh_commander.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="28" selection-start-line="28" selection-end-line="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.local/go1.9.2/src/encoding/json/encode.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="203">
+          <caret line="168" column="5" selection-start-line="168" selection-start-column="5" selection-end-line="168" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/systemd.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="64" selection-start-line="64" selection-end-line="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/persist/filestore.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="7" column="13" lean-forward="true" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/provision/utils.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="17" column="35" selection-start-line="17" selection-start-column="35" selection-end-line="17" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/engine/engine.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="108">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/drivers/plugin/localbinary/plugin.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="306">
+          <caret line="102" column="25" selection-start-line="102" selection-start-column="25" selection-end-line="102" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/libmachine.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="126">
+          <caret line="25" column="21" selection-start-line="25" selection-start-column="21" selection-end-line="25" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libmachine/host/host.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/commands/create.go">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="245" column="20" lean-forward="true" selection-start-line="245" selection-start-column="20" selection-end-line="245" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

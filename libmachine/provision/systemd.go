@@ -33,7 +33,7 @@ func NewSystemdProvisioner(osReleaseID string, d drivers.Driver) SystemdProvisio
 	}
 }
 
-func (p *SystemdProvisioner) GenerateDockerOptions(dockerPort int) (*DockerOptions, error) {
+func (p *SystemdProvisioner) GenerateDockerOptions() (*DockerOptions, error) {
 	var (
 		engineCfg bytes.Buffer
 	)
@@ -53,7 +53,7 @@ func (p *SystemdProvisioner) GenerateDockerOptions(dockerPort int) (*DockerOptio
 
 	engineConfigTmpl := `[Service]
 ExecStart=
-ExecStart=/usr/bin/` + arg + ` -H tcp://0.0.0.0:{{.DockerPort}} -H unix:///var/run/docker.sock --storage-driver {{.EngineOptions.StorageDriver}} --tlsverify --tlscacert {{.AuthOptions.CaCertRemotePath}} --tlscert {{.AuthOptions.ServerCertRemotePath}} --tlskey {{.AuthOptions.ServerKeyRemotePath}} {{ range .EngineOptions.Labels }}--label {{.}} {{ end }}{{ range .EngineOptions.InsecureRegistry }}--insecure-registry {{.}} {{ end }}{{ range .EngineOptions.RegistryMirror }}--registry-mirror {{.}} {{ end }}{{ range .EngineOptions.ArbitraryFlags }}--{{.}} {{ end }}
+ExecStart=/usr/bin/` + arg + ` -H unix:///var/run/docker.sock --storage-driver {{.EngineOptions.StorageDriver}} {{ range .EngineOptions.Labels }}--label {{.}} {{ end }}{{ range .EngineOptions.InsecureRegistry }}--insecure-registry {{.}} {{ end }}{{ range .EngineOptions.RegistryMirror }}--registry-mirror {{.}} {{ end }}{{ range .EngineOptions.ArbitraryFlags }}--{{.}} {{ end }}
 Environment={{range .EngineOptions.Env}}{{ printf "%q" . }} {{end}}
 `
 	t, err := template.New("engineConfig").Parse(engineConfigTmpl)
@@ -62,8 +62,6 @@ Environment={{range .EngineOptions.Env}}{{ printf "%q" . }} {{end}}
 	}
 
 	engineConfigContext := EngineConfigContext{
-		DockerPort:    dockerPort,
-		AuthOptions:   p.AuthOptions,
 		EngineOptions: p.EngineOptions,
 	}
 

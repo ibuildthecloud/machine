@@ -7,14 +7,12 @@ import (
 	"regexp"
 	"text/template"
 
-	"github.com/docker/machine/libmachine/auth"
 	"github.com/docker/machine/libmachine/drivers"
 	"github.com/docker/machine/libmachine/engine"
 	"github.com/docker/machine/libmachine/log"
 	"github.com/docker/machine/libmachine/mcnutils"
 	"github.com/docker/machine/libmachine/provision/pkgaction"
 	"github.com/docker/machine/libmachine/provision/serviceaction"
-	"github.com/docker/machine/libmachine/swarm"
 )
 
 var (
@@ -127,11 +125,8 @@ func (provisioner *RedHatProvisioner) dockerDaemonResponding() bool {
 	return true
 }
 
-func (provisioner *RedHatProvisioner) Provision(swarmOptions swarm.Options, authOptions auth.Options, engineOptions engine.Options) error {
-	provisioner.SwarmOptions = swarmOptions
-	provisioner.AuthOptions = authOptions
+func (provisioner *RedHatProvisioner) Provision(engineOptions engine.Options) error {
 	provisioner.EngineOptions = engineOptions
-	swarmOptions.Env = engineOptions.Env
 
 	// set default storage driver for redhat
 	storageDriver, err := decideStorageDriver(provisioner, "devicemapper", engineOptions.StorageDriver)
@@ -165,21 +160,10 @@ func (provisioner *RedHatProvisioner) Provision(swarmOptions swarm.Options, auth
 		return err
 	}
 
-	if err := makeDockerOptionsDir(provisioner); err != nil {
-		return err
-	}
-
-	provisioner.AuthOptions = setRemoteAuthOptions(provisioner)
-
-	if err := ConfigureAuth(provisioner); err != nil {
-		return err
-	}
-
-	err = configureSwarm(provisioner, swarmOptions, provisioner.AuthOptions)
-	return err
+	return makeDockerOptionsDir(provisioner)
 }
 
-func (provisioner *RedHatProvisioner) GenerateDockerOptions(dockerPort int) (*DockerOptions, error) {
+func (provisioner *RedHatProvisioner) GenerateDockerOptions() (*DockerOptions, error) {
 	var (
 		engineCfg  bytes.Buffer
 		configPath = provisioner.DaemonOptionsFile
@@ -196,8 +180,6 @@ func (provisioner *RedHatProvisioner) GenerateDockerOptions(dockerPort int) (*Do
 	}
 
 	engineConfigContext := EngineConfigContext{
-		DockerPort:       dockerPort,
-		AuthOptions:      provisioner.AuthOptions,
 		EngineOptions:    provisioner.EngineOptions,
 		DockerOptionsDir: provisioner.DockerOptionsDir,
 	}

@@ -2,21 +2,12 @@ package provision
 
 import (
 	"fmt"
-	"io/ioutil"
-	"net/url"
-	"path"
-	"path/filepath"
 	"regexp"
-	"strconv"
 	"strings"
 	"time"
 
-	"github.com/docker/machine/libmachine/auth"
-	"github.com/docker/machine/libmachine/cert"
-	"github.com/docker/machine/libmachine/engine"
 	"github.com/docker/machine/libmachine/log"
 	"github.com/docker/machine/libmachine/mcnutils"
-	"github.com/docker/machine/libmachine/provision/serviceaction"
 )
 
 type DockerOptions struct {
@@ -41,155 +32,6 @@ func makeDockerOptionsDir(p Provisioner) error {
 	}
 
 	return nil
-}
-
-func setRemoteAuthOptions(p Provisioner) auth.Options {
-	dockerDir := p.GetDockerOptionsDir()
-	authOptions := p.GetAuthOptions()
-
-	// due to windows clients, we cannot use filepath.Join as the paths
-	// will be mucked on the linux hosts
-	authOptions.CaCertRemotePath = path.Join(dockerDir, "ca.pem")
-	authOptions.ServerCertRemotePath = path.Join(dockerDir, "server.pem")
-	authOptions.ServerKeyRemotePath = path.Join(dockerDir, "server-key.pem")
-
-	return authOptions
-}
-
-func ConfigureAuth(p Provisioner) error {
-	var (
-		err error
-	)
-
-	driver := p.GetDriver()
-	machineName := driver.GetMachineName()
-	authOptions := p.GetAuthOptions()
-	swarmOptions := p.GetSwarmOptions()
-	org := mcnutils.GetUsername() + "." + machineName
-	bits := 2048
-
-	ip, err := driver.GetIP()
-	if err != nil {
-		return err
-	}
-
-	log.Info("Copying certs to the local machine directory...")
-
-	if err := mcnutils.CopyFile(authOptions.CaCertPath, filepath.Join(authOptions.StorePath, "ca.pem")); err != nil {
-		return fmt.Errorf("Copying ca.pem to machine dir failed: %s", err)
-	}
-
-	if err := mcnutils.CopyFile(authOptions.ClientCertPath, filepath.Join(authOptions.StorePath, "cert.pem")); err != nil {
-		return fmt.Errorf("Copying cert.pem to machine dir failed: %s", err)
-	}
-
-	if err := mcnutils.CopyFile(authOptions.ClientKeyPath, filepath.Join(authOptions.StorePath, "key.pem")); err != nil {
-		return fmt.Errorf("Copying key.pem to machine dir failed: %s", err)
-	}
-
-	// The Host IP is always added to the certificate's SANs list
-	hosts := append(authOptions.ServerCertSANs, ip, "localhost")
-	log.Debugf("generating server cert: %s ca-key=%s private-key=%s org=%s san=%s",
-		authOptions.ServerCertPath,
-		authOptions.CaCertPath,
-		authOptions.CaPrivateKeyPath,
-		org,
-		hosts,
-	)
-
-	// TODO: Switch to passing just authOptions to this func
-	// instead of all these individual fields
-	err = cert.GenerateCert(&cert.Options{
-		Hosts:       hosts,
-		CertFile:    authOptions.ServerCertPath,
-		KeyFile:     authOptions.ServerKeyPath,
-		CAFile:      authOptions.CaCertPath,
-		CAKeyFile:   authOptions.CaPrivateKeyPath,
-		Org:         org,
-		Bits:        bits,
-		SwarmMaster: swarmOptions.Master,
-	})
-
-	if err != nil {
-		return fmt.Errorf("error generating server cert: %s", err)
-	}
-
-	if err := p.Service("docker", serviceaction.Stop); err != nil {
-		return err
-	}
-
-	if _, err := p.SSHCommand(`if [ ! -z "$(ip link show docker0)" ]; then sudo ip link delete docker0; fi`); err != nil {
-		return err
-	}
-
-	// upload certs and configure TLS auth
-	caCert, err := ioutil.ReadFile(authOptions.CaCertPath)
-	if err != nil {
-		return err
-	}
-
-	serverCert, err := ioutil.ReadFile(authOptions.ServerCertPath)
-	if err != nil {
-		return err
-	}
-	serverKey, err := ioutil.ReadFile(authOptions.ServerKeyPath)
-	if err != nil {
-		return err
-	}
-
-	log.Info("Copying certs to the remote machine...")
-
-	// printf will choke if we don't pass a format string because of the
-	// dashes, so that's the reason for the '%%s'
-	certTransferCmdFmt := "printf '%%s' '%s' | sudo tee %s"
-
-	// These ones are for Jessie and Mike <3 <3 <3
-	if _, err := p.SSHCommand(fmt.Sprintf(certTransferCmdFmt, string(caCert), authOptions.CaCertRemotePath)); err != nil {
-		return err
-	}
-
-	if _, err := p.SSHCommand(fmt.Sprintf(certTransferCmdFmt, string(serverCert), authOptions.ServerCertRemotePath)); err != nil {
-		return err
-	}
-
-	if _, err := p.SSHCommand(fmt.Sprintf(certTransferCmdFmt, string(serverKey), authOptions.ServerKeyRemotePath)); err != nil {
-		return err
-	}
-
-	dockerURL, err := driver.GetURL()
-	if err != nil {
-		return err
-	}
-	u, err := url.Parse(dockerURL)
-	if err != nil {
-		return err
-	}
-	dockerPort := engine.DefaultPort
-	parts := strings.Split(u.Host, ":")
-	if len(parts) == 2 {
-		dPort, err := strconv.Atoi(parts[1])
-		if err != nil {
-			return err
-		}
-		dockerPort = dPort
-	}
-
-	dkrcfg, err := p.GenerateDockerOptions(dockerPort)
-	if err != nil {
-		return err
-	}
-
-	log.Info("Setting Docker configuration on the remote daemon...")
-
-	if _, err = p.SSHCommand(fmt.Sprintf("sudo mkdir -p %s && printf %%s \"%s\" | sudo tee %s", path.Dir(dkrcfg.EngineOptionsPath), dkrcfg.EngineOptions, dkrcfg.EngineOptionsPath)); err != nil {
-		return err
-	}
-
-	if err := p.Service("docker", serviceaction.Start); err != nil {
-		return err
-	}
-
-	return WaitForDocker(p, dockerPort)
 }
 
 func matchNetstatOut(reDaemonListening, netstatOut string) bool {

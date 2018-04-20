@@ -1,12 +1,10 @@
 package provision
 
 import (
-	"github.com/docker/machine/libmachine/auth"
 	"github.com/docker/machine/libmachine/drivers"
 	"github.com/docker/machine/libmachine/engine"
 	"github.com/docker/machine/libmachine/provision/pkgaction"
 	"github.com/docker/machine/libmachine/provision/serviceaction"
-	"github.com/docker/machine/libmachine/swarm"
 )
 
 type FakeDetector struct {
@@ -31,20 +29,12 @@ func (fp *FakeProvisioner) String() string {
 	return "fakeprovisioner"
 }
 
-func (fp *FakeProvisioner) GenerateDockerOptions(dockerPort int) (*DockerOptions, error) {
+func (fp *FakeProvisioner) GenerateDockerOptions() (*DockerOptions, error) {
 	return nil, nil
 }
 
 func (fp *FakeProvisioner) GetDockerOptionsDir() string {
 	return ""
-}
-
-func (fp *FakeProvisioner) GetAuthOptions() auth.Options {
-	return auth.Options{}
-}
-
-func (fp *FakeProvisioner) GetSwarmOptions() swarm.Options {
-	return swarm.Options{}
 }
 
 func (fp *FakeProvisioner) Package(name string, action pkgaction.PackageAction) error {
@@ -63,7 +53,7 @@ func (fp *FakeProvisioner) CompatibleWithHost() bool {
 	return true
 }
 
-func (fp *FakeProvisioner) Provision(swarmOptions swarm.Options, authOptions auth.Options, engineOptions engine.Options) error {
+func (fp *FakeProvisioner) Provision(engineOptions engine.Options) error {
 	return nil
 }
 

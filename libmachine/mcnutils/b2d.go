@@ -17,7 +17,6 @@ import (
 	"strings"
 
 	"github.com/docker/machine/libmachine/log"
-	"github.com/docker/machine/version"
 )
 
 const (
@@ -101,14 +100,6 @@ func (*b2dReleaseGetter) getReleaseTag(apiURL string) (string, error) {
 		apiURL = defaultURL
 	}
 
-	if !version.RC() {
-		// Just go straight to the convenience URL for "/latest" if we
-		// are a non-release candidate version.  "/latest" won't return
-		// non-RCs, so that's what we use for stable releases of
-		// Machine.
-		apiURL = apiURL + "/latest"
-	}
-
 	client := getClient()
 	req, err := getRequest(apiURL)
 	if err != nil {
@@ -119,24 +110,6 @@ func (*b2dReleaseGetter) getReleaseTag(apiURL string) (string, error) {
 		return "", err
 	}
 	defer rsp.Body.Close()
-
-	// If we call the API endpoint
-	// "/repos/boot2docker/boot2docker/releases" without specifying
-	// "/latest", we will receive a list of releases instead of a single
-	// one, and we should decode accordingly.
-	if version.RC() {
-		var tags []struct {
-			TagName string `json:"tag_name"`
-		}
-		if err := json.NewDecoder(rsp.Body).Decode(&tags); err != nil {
-			return "", err
-		}
-		t := tags[0]
-		if t.TagName == "" {
-			return "", errGitHubAPIResponse
-		}
-		return t.TagName, nil
-	}
 
 	// Otherwise, we get back just one release, which we can decode to get
 	// the tag.

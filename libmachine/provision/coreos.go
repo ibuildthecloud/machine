@@ -5,12 +5,10 @@ import (
 	"fmt"
 	"text/template"
 
-	"github.com/docker/machine/libmachine/auth"
 	"github.com/docker/machine/libmachine/drivers"
 	"github.com/docker/machine/libmachine/engine"
 	"github.com/docker/machine/libmachine/log"
 	"github.com/docker/machine/libmachine/provision/pkgaction"
-	"github.com/docker/machine/libmachine/swarm"
 	"github.com/docker/machine/libmachine/versioncmp"
 )
 
@@ -57,7 +55,7 @@ func (provisioner *CoreOSProvisioner) SetHostname(hostname string) error {
 	return nil
 }
 
-func (provisioner *CoreOSProvisioner) GenerateDockerOptions(dockerPort int) (*DockerOptions, error) {
+func (provisioner *CoreOSProvisioner) GenerateDockerOptions() (*DockerOptions, error) {
 	var (
 		engineCfg bytes.Buffer
 	)
@@ -88,8 +86,6 @@ Environment={{range .EngineOptions.Env}}{{ printf "%q" . }} {{end}}
 	}
 
 	engineConfigContext := EngineConfigContext{
-		DockerPort:    dockerPort,
-		AuthOptions:   provisioner.AuthOptions,
 		EngineOptions: provisioner.EngineOptions,
 	}
 
@@ -105,28 +101,12 @@ func (provisioner *CoreOSProvisioner) Package(name string, action pkgaction.Pack
 	return nil
 }
 
-func (provisioner *CoreOSProvisioner) Provision(swarmOptions swarm.Options, authOptions auth.Options, engineOptions engine.Options) error {
-	provisioner.SwarmOptions = swarmOptions
-	provisioner.AuthOptions = authOptions
+func (provisioner *CoreOSProvisioner) Provision(engineOptions engine.Options) error {
 	provisioner.EngineOptions = engineOptions
 
 	if err := provisioner.SetHostname(provisioner.Driver.GetMachineName()); err != nil {
 		return err
 	}
 
-	if err := makeDockerOptionsDir(provisioner); err != nil {
-		return err
-	}
-
-	log.Debugf("Preparing certificates")
-	provisioner.AuthOptions = setRemoteAuthOptions(provisioner)
-
-	log.Debugf("Setting up certificates")
-	if err := ConfigureAuth(provisioner); err != nil {
-		return err
-	}
-
-	log.Debug("Configuring swarm")
-	err := configureSwarm(provisioner, swarmOptions, provisioner.AuthOptions)
-	return err
+	return makeDockerOptionsDir(provisioner)
 }

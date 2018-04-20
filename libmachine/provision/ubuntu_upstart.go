@@ -4,14 +4,12 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/docker/machine/libmachine/auth"
 	"github.com/docker/machine/libmachine/drivers"
 	"github.com/docker/machine/libmachine/engine"
 	"github.com/docker/machine/libmachine/log"
 	"github.com/docker/machine/libmachine/mcnutils"
 	"github.com/docker/machine/libmachine/provision/pkgaction"
 	"github.com/docker/machine/libmachine/provision/serviceaction"
-	"github.com/docker/machine/libmachine/swarm"
 )
 
 func init() {
@@ -116,11 +114,8 @@ func (provisioner *UbuntuProvisioner) dockerDaemonResponding() bool {
 	return true
 }
 
-func (provisioner *UbuntuProvisioner) Provision(swarmOptions swarm.Options, authOptions auth.Options, engineOptions engine.Options) error {
-	provisioner.SwarmOptions = swarmOptions
-	provisioner.AuthOptions = authOptions
+func (provisioner *UbuntuProvisioner) Provision(engineOptions engine.Options) error {
 	provisioner.EngineOptions = engineOptions
-	swarmOptions.Env = engineOptions.Env
 
 	storageDriver, err := decideStorageDriver(provisioner, "aufs", engineOptions.StorageDriver)
 	if err != nil {
@@ -147,16 +142,5 @@ func (provisioner *UbuntuProvisioner) Provision(swarmOptions swarm.Options, auth
 		return err
 	}
 
-	if err := makeDockerOptionsDir(provisioner); err != nil {
-		return err
-	}
-
-	provisioner.AuthOptions = setRemoteAuthOptions(provisioner)
-
-	if err := ConfigureAuth(provisioner); err != nil {
-		return err
-	}
-
-	err = configureSwarm(provisioner, swarmOptions, provisioner.AuthOptions)
-	return err
+	return makeDockerOptionsDir(provisioner)
 }

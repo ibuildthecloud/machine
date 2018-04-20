@@ -2,14 +2,10 @@ package libmachine
 
 import (
 	"fmt"
-	"path/filepath"
 
 	"io"
 
 	"github.com/docker/machine/drivers/errdriver"
-	"github.com/docker/machine/libmachine/auth"
-	"github.com/docker/machine/libmachine/cert"
-	"github.com/docker/machine/libmachine/check"
 	"github.com/docker/machine/libmachine/drivers"
 	"github.com/docker/machine/libmachine/drivers/plugin/localbinary"
 	"github.com/docker/machine/libmachine/drivers/rpc"
@@ -20,9 +16,7 @@ import (
 	"github.com/docker/machine/libmachine/mcnutils"
 	"github.com/docker/machine/libmachine/persist"
 	"github.com/docker/machine/libmachine/provision"
-	"github.com/docker/machine/libmachine/ssh"
 	"github.com/docker/machine/libmachine/state"
-	"github.com/docker/machine/libmachine/swarm"
 	"github.com/docker/machine/libmachine/version"
 )
 
@@ -35,10 +29,8 @@ type API interface {
 }
 
 type Client struct {
-	certsDir       string
-	IsDebug        bool
-	SSHClientType  ssh.ClientType
-	GithubAPIToken string
+	certsDir string
+	IsDebug  bool
 	*persist.Filestore
 	clientDriverFactory rpcdriver.RPCClientDriverFactory
 }
@@ -47,7 +39,6 @@ func NewClient(storePath, certsDir string) *Client {
 	return &Client{
 		certsDir:            certsDir,
 		IsDebug:             false,
-		SSHClientType:       ssh.External,
 		Filestore:           persist.NewFilestore(storePath, certsDir, certsDir),
 		clientDriverFactory: rpcdriver.NewRPCClientDriverFactory(),
 	}
@@ -65,24 +56,10 @@ func (api *Client) NewHost(driverName string, rawDriver []byte) (*host.Host, err
 		Driver:        driver,
 		DriverName:    driver.DriverName(),
 		HostOptions: &host.Options{
-			AuthOptions: &auth.Options{
-				CertDir:          api.certsDir,
-				CaCertPath:       filepath.Join(api.certsDir, "ca.pem"),
-				CaPrivateKeyPath: filepath.Join(api.certsDir, "ca-key.pem"),
-				ClientCertPath:   filepath.Join(api.certsDir, "cert.pem"),
-				ClientKeyPath:    filepath.Join(api.certsDir, "key.pem"),
-				ServerCertPath:   filepath.Join(api.GetMachinesDir(), "server.pem"),
-				ServerKeyPath:    filepath.Join(api.GetMachinesDir(), "server-key.pem"),
-			},
 			EngineOptions: &engine.Options{
 				InstallURL:    drivers.DefaultEngineInstallURL,
 				StorageDriver: "aufs",
 				TLSVerify:     true,
-			},
-			SwarmOptions: &swarm.Options{
-				Host:     "tcp://0.0.0.0:3376",
-				Image:    "swarm:latest",
-				Strategy: "spread",
 			},
 		},
 	}, nil
@@ -116,10 +93,6 @@ func (api *Client) Load(name string) (*host.Host, error) {
 // Create is the wrapper method which covers all of the boilerplate around
 // actually creating, provisioning, and persisting an instance in the store.
 func (api *Client) Create(h *host.Host) error {
-	if err := cert.BootstrapCertificates(h.AuthOptions()); err != nil {
-		return fmt.Errorf("Error generating certificates: %s", err)
-	}
-
 	log.Info("Running pre-create checks...")
 
 	if err := h.Driver.PreCreateCheck(); err != nil {
@@ -169,17 +142,10 @@ func (api *Client) performCreate(h *host.Host) error {
 	}
 
 	log.Infof("Provisioning with %s...", provisioner.String())
-	if err := provisioner.Provision(*h.HostOptions.SwarmOptions, *h.HostOptions.AuthOptions, *h.HostOptions.EngineOptions); err != nil {
+	if err := provisioner.Provision(*h.HostOptions.EngineOptions); err != nil {
 		return fmt.Errorf("Error running provisioning: %s", err)
 	}
 
-	// We should check the connection to docker here
-	log.Info("Checking connection to Docker...")
-	if _, _, err = check.DefaultConnChecker.Check(h, false); err != nil {
-		return fmt.Errorf("Error checking the host: %s", err)
-	}
-
-	log.Info("Docker is up and running!")
 	return nil
 }
 

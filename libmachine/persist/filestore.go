@@ -2,7 +2,6 @@ package persist
 
 import (
 	"encoding/json"
-	"fmt"
 	"io/ioutil"
 	"os"
 	"path/filepath"
@@ -112,32 +111,7 @@ func (s Filestore) loadConfig(h *host.Host) error {
 	if err != nil {
 		return err
 	}
-
-	// Remember the machine name so we don't have to pass it through each
-	// struct in the migration.
-	name := h.Name
-
-	migratedHost, migrationPerformed, err := host.MigrateHost(h, data)
-	if err != nil {
-		return fmt.Errorf("Error getting migrated host: %s", err)
-	}
-
-	*h = *migratedHost
-
-	h.Name = name
-
-	// If we end up performing a migration, we should save afterwards so we don't have to do it again on subsequent invocations.
-	if migrationPerformed {
-		if err := s.saveToFile(data, filepath.Join(s.GetMachinesDir(), h.Name, "config.json.bak")); err != nil {
-			return fmt.Errorf("Error attempting to save backup after migration: %s", err)
-		}
-
-		if err := s.Save(h); err != nil {
-			return fmt.Errorf("Error saving config after migration was performed: %s", err)
-		}
-	}
-
-	return nil
+	return json.Unmarshal(data, h)
 }
 
 func (s Filestore) Load(name string) (*host.Host, error) {

@@ -5,10 +5,8 @@ import (
 	"fmt"
 	"text/template"
 
-	"github.com/docker/machine/libmachine/auth"
 	"github.com/docker/machine/libmachine/drivers"
 	"github.com/docker/machine/libmachine/engine"
-	"github.com/docker/machine/libmachine/swarm"
 )
 
 type GenericProvisioner struct {
@@ -19,9 +17,7 @@ type GenericProvisioner struct {
 	Packages          []string
 	OsReleaseInfo     *OsRelease
 	Driver            drivers.Driver
-	AuthOptions       auth.Options
 	EngineOptions     engine.Options
-	SwarmOptions      swarm.Options
 }
 
 type GenericSSHCommander struct {
@@ -72,14 +68,6 @@ func (provisioner *GenericProvisioner) CompatibleWithHost() bool {
 	return provisioner.OsReleaseInfo.ID == provisioner.OsReleaseID
 }
 
-func (provisioner *GenericProvisioner) GetAuthOptions() auth.Options {
-	return provisioner.AuthOptions
-}
-
-func (provisioner *GenericProvisioner) GetSwarmOptions() swarm.Options {
-	return provisioner.SwarmOptions
-}
-
 func (provisioner *GenericProvisioner) SetOsReleaseInfo(info *OsRelease) {
 	provisioner.OsReleaseInfo = info
 }
@@ -88,7 +76,7 @@ func (provisioner *GenericProvisioner) GetOsReleaseInfo() (*OsRelease, error) {
 	return provisioner.OsReleaseInfo, nil
 }
 
-func (provisioner *GenericProvisioner) GenerateDockerOptions(dockerPort int) (*DockerOptions, error) {
+func (provisioner *GenericProvisioner) GenerateDockerOptions() (*DockerOptions, error) {
 	var (
 		engineCfg bytes.Buffer
 	)
@@ -98,13 +86,8 @@ func (provisioner *GenericProvisioner) GenerateDockerOptions(dockerPort int) (*D
 
 	engineConfigTmpl := `
 DOCKER_OPTS='
--H tcp://0.0.0.0:{{.DockerPort}}
 -H unix:///var/run/docker.sock
 --storage-driver {{.EngineOptions.StorageDriver}}
---tlsverify
---tlscacert {{.AuthOptions.CaCertRemotePath}}
---tlscert {{.AuthOptions.ServerCertRemotePath}}
---tlskey {{.AuthOptions.ServerKeyRemotePath}}
 {{ range .EngineOptions.Labels }}--label {{.}}
 {{ end }}{{ range .EngineOptions.InsecureRegistry }}--insecure-registry {{.}}
 {{ end }}{{ range .EngineOptions.RegistryMirror }}--registry-mirror {{.}}
@@ -120,8 +103,6 @@ DOCKER_OPTS='
 	}
 
 	engineConfigContext := EngineConfigContext{
-		DockerPort:    dockerPort,
-		AuthOptions:   provisioner.AuthOptions,
 		EngineOptions: provisioner.EngineOptions,
 	}
 

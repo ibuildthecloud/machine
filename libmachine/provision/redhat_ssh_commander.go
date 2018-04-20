@@ -26,9 +26,6 @@ func (sshCmder RedHatSSHCommander) SSHCommand(args string) (string, error) {
 	// no local tty.
 	var output string
 	switch c := client.(type) {
-	case *ssh.ExternalClient:
-		c.BaseArgs = append(c.BaseArgs, "-tt")
-		output, err = c.Output(args)
 	case *ssh.NativeClient:
 		output, err = c.OutputWithPty(args)
 	}
